@@ -1,0 +1,197 @@
+#include <stdio.h>
+ 
+int main() {
+ 
+    // Armazenagem de dados
+    char Estado1[20], Estado2[20];
+    char NomeCidade1[50], NomeCidade2[50];
+    char LetraCarta1[3], LetraCarta2[3];
+    int NumCarta1, NumCarta2;
+    char CodigoCarta1[5], CodigoCarta2[5];
+ 
+    long long Populacao1, Populacao2;
+    int PontosTuristicos1, PontosTuristicos2;
+ 
+    double Area1, PIB1;
+    double Area2, PIB2;
+ 
+    // ========================= 
+    // PRIMEIRA CARTA
+    // =========================
+    printf("===== CADASTRO - CARTA 1 =====\n");
+ 
+    printf("Escolha a letra do estado (A a H): ");
+    scanf("%2s", LetraCarta1);
+ 
+    printf("Escolha o numero da cidade (1 a 4): ");
+    scanf("%d", &NumCarta1);
+ 
+    // Gera o código da carta (ex: A01)
+    sprintf(CodigoCarta1, "%s0%d", LetraCarta1, NumCarta1);
+ 
+    printf("Nome do estado: ");
+    scanf("%19s", Estado1);
+ 
+    printf("Nome da cidade: ");
+    scanf(" %[^\n]", NomeCidade1);
+ 
+    printf("Populacao: ");
+    scanf("%lld", &Populacao1);
+ 
+    printf("Area (km2): ");
+    scanf("%lf", &Area1);
+ 
+    printf("PIB (em bilhoes): ");
+    scanf("%lf", &PIB1);
+ 
+    printf("Numero de pontos turisticos: ");
+    scanf("%d", &PontosTuristicos1);
+ 
+    // =========================
+    // SEGUNDA CARTA
+    // =========================
+    printf("\n===== CADASTRO - CARTA 2 =====\n");
+ 
+    printf("Escolha a letra do estado (A a H): ");
+    scanf("%2s", LetraCarta2);
+ 
+    printf("Escolha o numero da cidade (1 a 4): ");
+    scanf("%d", &NumCarta2);
+ 
+    sprintf(CodigoCarta2, "%s0%d", LetraCarta2, NumCarta2);
+ 
+    printf("Nome do estado: ");
+    scanf("%19s", Estado2);
+ 
+    printf("Nome da cidade: ");
+    scanf(" %[^\n]", NomeCidade2);
+ 
+    printf("Populacao: ");
+    scanf("%lld", &Populacao2);
+ 
+    printf("Area (km2): ");
+    scanf("%lf", &Area2);
+ 
+    printf("PIB (em bilhoes): ");
+    scanf("%lf", &PIB2);
+ 
+    printf("Numero de pontos turisticos: ");
+    scanf("%d", &PontosTuristicos2);
+ 
+    // =========================
+    // CALCULOS (NIVEL AVENTUREIRO)
+    // =========================
+ 
+    // Validacao: evita divisao por zero
+    double DenPop1 = 0, DenPop2 = 0;
+    double PIBperCapita1 = 0, PIBperCapita2 = 0;
+ 
+    if (Area1 > 0)
+        DenPop1 = Populacao1 / Area1;
+ 
+    if (Area2 > 0)
+        DenPop2 = Populacao2 / Area2;
+ 
+    if (Populacao1 > 0)
+        PIBperCapita1 = PIB1 / Populacao1;
+ 
+    if (Populacao2 > 0)
+        PIBperCapita2 = PIB2 / Populacao2;
+ 
+    // =========================
+    // SUPER PODER (NIVEL MESTRE)
+    // =========================
+ 
+    double SuperPoder1 = Populacao1 + Area1 + PIB1 + PontosTuristicos1 + PIBperCapita1 + DenPop1;
+    double SuperPoder2 = Populacao2 + Area2 + PIB2 + PontosTuristicos2 + PIBperCapita2 + DenPop2;
+ 
+    // =========================
+    // EXIBICAO DAS CARTAS
+    // =========================
+ 
+    printf("\n===== CARTA 1 [%s] =====\n", CodigoCarta1);
+    printf("Estado: %s\n", Estado1);
+    printf("Cidade: %s\n", NomeCidade1);
+    printf("Populacao: %lld\n", Populacao1);
+    printf("Area: %.2f km2\n", Area1);
+    printf("PIB: %.2f bilhoes\n", PIB1);
+    printf("Pontos Turisticos: %d\n", PontosTuristicos1);
+    printf("Densidade Populacional: %.2f hab/km2\n", DenPop1);
+    printf("PIB per Capita: %.2f\n", PIBperCapita1);
+    printf("Super Poder: %.2f\n", SuperPoder1);
+ 
+    printf("\n===== CARTA 2 [%s] =====\n", CodigoCarta2);
+    printf("Estado: %s\n", Estado2);
+    printf("Cidade: %s\n", NomeCidade2);
+    printf("Populacao: %lld\n", Populacao2);
+    printf("Area: %.2f km2\n", Area2);
+    printf("PIB: %.2f bilhoes\n", PIB2);
+    printf("Pontos Turisticos: %d\n", PontosTuristicos2);
+    printf("Densidade Populacional: %.2f hab/km2\n", DenPop2);
+    printf("PIB per Capita: %.2f\n", PIBperCapita2);
+    printf("Super Poder: %.2f\n", SuperPoder2);
+ 
+    // =========================
+    // COMPARACOES (NIVEL MESTRE)
+    // =========================
+ 
+    printf("\n===== RESULTADO =====\n");
+ 
+    // Populacao (maior vence)
+    if (Populacao1 > Populacao2)
+        printf("Populacao: %s venceu!\n", CodigoCarta1);
+    else if (Populacao1 < Populacao2)
+        printf("Populacao: %s venceu!\n", CodigoCarta2);
+    else
+        printf("Populacao: Empate!\n");
+ 
+    // Area (maior vence)
+    if (Area1 > Area2)
+        printf("Area: %s venceu!\n", CodigoCarta1);
+    else if (Area1 < Area2)
+        printf("Area: %s venceu!\n", CodigoCarta2);
+    else
+        printf("Area: Empate!\n");
+ 
+    // PIB (maior vence)
+    if (PIB1 > PIB2)
+        printf("PIB: %s venceu!\n", CodigoCarta1);
+    else if (PIB1 < PIB2)
+        printf("PIB: %s venceu!\n", CodigoCarta2);
+    else
+        printf("PIB: Empate!\n");
+ 
+    // Pontos Turisticos (maior vence)
+    if (PontosTuristicos1 > PontosTuristicos2)
+        printf("Pontos Turisticos: %s venceu!\n", CodigoCarta1);
+    else if (PontosTuristicos1 < PontosTuristicos2)
+        printf("Pontos Turisticos: %s venceu!\n", CodigoCarta2);
+    else
+        printf("Pontos Turisticos: Empate!\n");
+ 
+    // PIB per Capita (maior vence)
+    if (PIBperCapita1 > PIBperCapita2)
+        printf("PIB per Capita: %s venceu!\n", CodigoCarta1);
+    else if (PIBperCapita1 < PIBperCapita2)
+        printf("PIB per Capita: %s venceu!\n", CodigoCarta2);
+    else
+        printf("PIB per Capita: Empate!\n");
+ 
+    // Densidade Populacional (MENOR vence)
+    if (DenPop1 < DenPop2)
+        printf("Densidade Populacional: %s venceu!\n", CodigoCarta1);
+    else if (DenPop1 > DenPop2)
+        printf("Densidade Populacional: %s venceu!\n", CodigoCarta2);
+    else
+        printf("Densidade Populacional: Empate!\n");
+ 
+    // Vencedor final pelo Super Poder
+    if (SuperPoder1 > SuperPoder2)
+        printf("\nVencedor final: %s - %s!\n", CodigoCarta1, NomeCidade1);
+    else if (SuperPoder1 < SuperPoder2)
+        printf("\nVencedor final: %s - %s!\n", CodigoCarta2, NomeCidade2);
+    else
+        printf("\nEmpate geral no Super Poder!\n");
+ 
+    return 0;
+}
