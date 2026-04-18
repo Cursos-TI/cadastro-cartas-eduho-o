@@ -15,9 +15,9 @@ int main() {
     double Area1, PIB1;
     double Area2, PIB2;
  
-    // ========================= 
+     
     // PRIMEIRA CARTA
-    // =========================
+    
     printf("===== CADASTRO - CARTA 1 =====\n");
  
     printf("Escolha a letra do estado (A a H): ");
@@ -47,9 +47,9 @@ int main() {
     printf("Numero de pontos turisticos: ");
     scanf("%d", &PontosTuristicos1);
  
-    // =========================
+    
     // SEGUNDA CARTA
-    // =========================
+   
     printf("\n===== CADASTRO - CARTA 2 =====\n");
  
     printf("Escolha a letra do estado (A a H): ");
@@ -78,11 +78,11 @@ int main() {
     printf("Numero de pontos turisticos: ");
     scanf("%d", &PontosTuristicos2);
  
-    // =========================
-    // CALCULOS (NIVEL AVENTUREIRO)
-    // =========================
+    
+    //Calculos
+    
  
-    // Validacao: evita divisao por zero
+    
     double DenPop1 = 0, DenPop2 = 0;
     double PIBperCapita1 = 0, PIBperCapita2 = 0;
  
@@ -98,16 +98,16 @@ int main() {
     if (Populacao2 > 0)
         PIBperCapita2 = PIB2 / Populacao2;
  
-    // =========================
-    // SUPER PODER (NIVEL MESTRE)
-    // =========================
+    
+    // SUPER PODER
+    
  
     double SuperPoder1 = Populacao1 + Area1 + PIB1 + PontosTuristicos1 + PIBperCapita1 + DenPop1;
     double SuperPoder2 = Populacao2 + Area2 + PIB2 + PontosTuristicos2 + PIBperCapita2 + DenPop2;
  
-    // =========================
+    
     // EXIBICAO DAS CARTAS
-    // =========================
+    
  
     printf("\n===== CARTA 1 [%s] =====\n", CodigoCarta1);
     printf("Estado: %s\n", Estado1);
@@ -131,9 +131,9 @@ int main() {
     printf("PIB per Capita: %.2f\n", PIBperCapita2);
     printf("Super Poder: %.2f\n", SuperPoder2);
  
-    // =========================
-    // COMPARACOES (NIVEL MESTRE)
-    // =========================
+    
+    // COMPARACOES
+    
  
     printf("\n===== RESULTADO =====\n");
  
